@@ -1,5 +1,4 @@
 const contactCollectionModule = require("./ContactCollection")
-const contactModule = require("./Contact")
 
 const contactList = Object.create({}, {
   "buildContactList": {
@@ -7,15 +6,13 @@ const contactList = Object.create({}, {
       contactCollectionModule.getContacts()
       .then((response) => {
         console.log("all contacts", response)
-
         const currentListRef = document.querySelector(".list-contacts-article")
         if(currentListRef){
           currentListRef.remove()
         }
-
         const contactsArticle = document.createElement("article")
         contactsArticle.className = "list-contacts-article"
-
+        const contactModule = require("./Contact")
         response.forEach(contact => {
           contactsArticle.appendChild(contactModule.createContactComponent(contact))
         });

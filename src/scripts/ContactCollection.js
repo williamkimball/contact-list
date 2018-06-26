@@ -18,6 +18,14 @@ const contactCollection = Object.create({}, {
     value: function() {
       return $.ajax("http://localhost:3000/contacts")
     }
+  },
+  "deleteContact": {
+    value: function(id){
+      return $.ajax({
+        url: `http://localhost:3000/contacts/${id}`,
+        method: "DELETE"
+      })
+    }
   }
 })
 
