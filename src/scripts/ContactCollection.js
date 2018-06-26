@@ -13,6 +13,11 @@ const contactCollection = Object.create({}, {
         }
       })
     }
+  },
+  "getContacts": {
+    value: function() {
+      return $.ajax("http://localhost:3000/contacts")
+    }
   }
 })
 

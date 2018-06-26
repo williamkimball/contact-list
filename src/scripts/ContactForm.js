@@ -1,6 +1,7 @@
 const $ = require("jquery")
 
 const contactCollectionModule = require("./ContactCollection")
+const contactListModule = require("./ContactList")
 
 const addNewContact = () => {
   const newContactName = $(".name-form-field").val()
@@ -10,6 +11,7 @@ const addNewContact = () => {
   contactCollectionModule.postContact(newContactName, newContactPhone, newContactAddr)
   .then((response) => {
     console.log("response", response)
+    contactListModule.buildContactList()
   })
 }
 
