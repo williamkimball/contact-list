@@ -26,6 +26,24 @@ const contactCollection = Object.create({}, {
         method: "DELETE"
       })
     }
+  },
+  "getContact": {
+    value: function(id) {
+      return $.ajax(`http://localhost:3000/contacts/${id}`)
+    }
+  },
+  "putContact": {
+    value: function(id, name, phone, address){
+      return $.ajax({
+        url: `http://localhost:3000/contacts/${id}`,
+        method: "PUT",
+        data: {
+          name: name,
+          phone: phone,
+          address: address
+        }
+      })
+    }
   }
 })
 
