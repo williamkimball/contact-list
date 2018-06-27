@@ -1,7 +1,12 @@
+* {
+    background-color: #5B616A
+}
+
 article {
     border: solid black 3px;
     margin: 1%;
     padding: 2%;
+    background-color: #CED3DC
 }
 
 #formArticle {
@@ -9,9 +14,14 @@ article {
     justify-content: space-around;
     flex-wrap: wrap;
 }
-/* #addBtn {
-    display: block;
-} */
+
+button {
+    background-color: rgb(150, 153, 220)
+}
+
+input {
+    background-color: antiquewhite
+}
 
 .list-contacts-article{
     display: flex;
