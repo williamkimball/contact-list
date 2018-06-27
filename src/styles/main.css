@@ -1,4 +1,4 @@
-* {
+body {
     background-color: #5B616A
 }
 
@@ -19,9 +19,9 @@ button {
     background-color: rgb(150, 153, 220)
 }
 
-input {
+/* input {
     background-color: antiquewhite
-}
+} */
 
 .list-contacts-article{
     display: flex;
