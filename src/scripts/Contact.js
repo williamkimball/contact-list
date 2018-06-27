@@ -5,7 +5,7 @@ const ContactListModule = require("./ContactList")
 const deleteContact = () => {
   console.log("delete button clicked", event.currentTarget.parentNode.id)
   const contactId = event.currentTarget.parentNode.id
-  ContactCollectionModule.deleteContact(contactId)
+  ContactCollectionModule.deleteContact(contactId) //uses an ajax call to find the contact that was deleted, and then runs the deleteContact function to actually take it out of the database, then rebuilds the contact list
   .then(() => {
     ContactListModule.buildContactList()
   })

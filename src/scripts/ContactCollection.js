@@ -1,7 +1,7 @@
 const $ = require("jquery")
 
 const contactCollection = Object.create({}, {
-  "postContact": {
+  "postContact": { //function for adding a completely new contact to the database.
     value: function(name, phone, address) {
       return $.ajax({
         url: "http://localhost:3000/contacts",
@@ -20,19 +20,19 @@ const contactCollection = Object.create({}, {
     }
   },
   "deleteContact": {
-    value: function(id){
+    value: function(id){ //takes the id of a contact, executes an ajax call on it and removes it fron the database.
       return $.ajax({
-        url: `http://localhost:3000/contacts/${id}`,
+        url: `http://localhost:3000/contacts/${id}`, //uses id passed in to select the specific contact to delete.
         method: "DELETE"
       })
     }
   },
   "getContact": {
     value: function(id) {
-      return $.ajax(`http://localhost:3000/contacts/${id}`)
+      return $.ajax(`http://localhost:3000/contacts/${id}`) //uses an ajax call to find and return the specific contact
     }
   },
-  "putContact": {
+  "putContact": { //function to edit contact and update the database
     value: function(id, name, phone, address){
       return $.ajax({
         url: `http://localhost:3000/contacts/${id}`,
