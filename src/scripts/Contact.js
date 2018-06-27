@@ -15,75 +15,44 @@ const editContact = () => {
   const contactId = event.currentTarget.parentNode.id
   ContactCollectionModule.getContact(contactId)
   .then((response) => {
-    console.log("contact to be edited", response.phone);
+    console.log("contact to be edited", response.id);
     buildEditContactForm(response)
   })
 }
 
 const buildEditContactForm = (contact) => {
-  const editContactArticle = document.createElement("article")
-  editContactArticle.className = "edit-contact-article"
 
-  const nameSection = document.createElement("section")
+$("#addBtn").hide();
+  $(".name-form-field").val(contact.name)
 
-  const nameLabel = document.createElement("label")
-  nameLabel.textContent = "Name: "
-  nameSection.appendChild(nameLabel)
+  $(".phone-form-field").val(contact.phone)
 
-  const nameField = document.createElement("input")
-  nameField.setAttribute("type", "text")
-  nameField.className = "name-edit-field"
-  nameField.value = contact.name
-  nameSection.appendChild(nameField)
-
-  editContactArticle.appendChild(nameSection)
-
-  const phoneSection = document.createElement("section")
-
-  const phoneLabel = document.createElement("label")
-  phoneLabel.textContent = "Phone: "
-  phoneSection.appendChild(phoneLabel)
-
-  const phoneField = document.createElement("input")
-  phoneField.setAttribute("type", "tel")
-  phoneField.className = "phone-edit-field"
-  phoneField.value = contact.phone
-  phoneSection.appendChild(phoneField)
-
-  editContactArticle.appendChild(phoneSection)
-
-  const addrSection = document.createElement("section")
-
-  const addrLabel = document.createElement("label")
-  addrLabel.textContent = "Address: "
-  addrSection.appendChild(addrLabel)
-
-  const addrFieldOne = document.createElement("input")
-  addrFieldOne.setAttribute("type", "text")
-  addrFieldOne.className = "addr-edit-field"
-  addrFieldOne.value = contact.address
-  addrSection.appendChild(addrFieldOne)
-
-  editContactArticle.appendChild(addrSection)
+  $(".addr-form-field").val(contact.address)
 
   const editButton = document.createElement("button")
-  editButton.textContent = "Update"
+  editButton.textContent = "Update";
   editButton.id = `${contact.id}`
-  editButton.addEventListener("click", editExistingContact)
-  editContactArticle.appendChild(editButton)
+  editButton.className = "editBtn"
+  editButton.addEventListener("click", function() {
+    editExistingContact(contact);
+    $("#addBtn").show();
+    $(editButton).remove();
+  })
+  $("#formArticle").append(editButton)
 
-  document.querySelector("#display-container").appendChild(editContactArticle)
+
 }
 
-const editExistingContact = () => {
-  const contactId = event.currentTarget.id
-  const contactName = $(".name-edit-field").val()
-  const contactPhone = $(".phone-edit-field").val()
-  const contactAddress = $(".addr-edit-field").val()
+const editExistingContact = (contact) => {
+  const contactId = contact.id
+  console.log(contactId);
+  const contactName = $(".name-form-field").val()
+  const contactPhone = $(".phone-form-field").val()
+  const contactAddress = $(".addr-form-field").val()
   ContactCollectionModule.putContact(contactId, contactName, contactPhone, contactAddress)
   .then(() => {
-    document.querySelector(".edit-contact-article").remove()
     ContactListModule.buildContactList()
+    $("input").val("")
   })
 }
 

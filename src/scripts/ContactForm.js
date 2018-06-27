@@ -19,6 +19,7 @@ const contactForm = Object.create({}, {
   buildContactForm: {
     value: function() {
       const formArticle = document.createElement("article")
+      formArticle.id = "formArticle"
 
       const nameSection = document.createElement("section")
 
@@ -60,6 +61,7 @@ const contactForm = Object.create({}, {
 
       const addButton = document.createElement("button")
       addButton.textContent = "Add"
+      addButton.id = "addBtn"
       addButton.addEventListener("click", addNewContact)
       formArticle.appendChild(addButton)
 
