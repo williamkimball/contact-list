@@ -3,5 +3,5 @@ const contactList = require("./ContactList")
 console.log("contact form module", contactForm);
 
 
-contactForm.buildContactForm()
+contactForm.buildContactForm() //on page load, fire the 
 contactList.buildContactList()
