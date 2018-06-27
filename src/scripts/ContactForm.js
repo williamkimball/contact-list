@@ -8,6 +8,7 @@ const addNewContact = () => {
   const newContactPhone = $(".phone-form-field").val()
   const newContactAddr = $(".addr-form-field").val()
   console.log("add button clicked", newContactName, newContactPhone, newContactAddr);
+  $("input").val("")
   contactCollectionModule.postContact(newContactName, newContactPhone, newContactAddr)
   .then((response) => {
     console.log("response", response)

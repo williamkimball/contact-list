@@ -1,0 +1,26 @@
+article {
+    border: solid black 3px;
+    margin: 1%;
+    padding: 2%;
+}
+
+#formArticle {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* #addBtn {
+    display: block;
+} */
+
+.list-contacts-article{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.list-contacts-article section {
+    border: 2px solid blue;
+    margin: 1%;
+    padding: 2%;
+}
